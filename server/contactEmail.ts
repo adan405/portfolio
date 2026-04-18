@@ -13,7 +13,7 @@ const SMTP_PORT = 587;
 const SMTP_SECURE = false;
 const SMTP_USER = 'adanbhatti6677@gmail.com';
 /** Paste your 16-character Gmail App Password here */
-const SMTP_PASS = '';
+const SMTP_PASS = 'sjeo iivv exed wcxd';
 
 const SMTP_FROM = `"Portfolio contact" <${SMTP_USER}>`;
 
