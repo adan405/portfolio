@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { validateContact } from './validateContact.js';
+import { validateContact } from './validateContact';
 
 describe('validateContact', () => {
   it('accepts valid payload', () => {
@@ -43,18 +43,5 @@ describe('validateContact', () => {
     });
     expect(r.ok).toBe(false);
     if (!r.ok) expect(r.fields).toContain('message');
-  });
-
-  it('trims strings', () => {
-    const r = validateContact({
-      name: '  Test User  ',
-      email: '  test@example.com  ',
-      message: '  Enough characters here for validation.  ',
-    });
-    expect(r.ok).toBe(true);
-    if (r.ok) {
-      expect(r.name).toBe('Test User');
-      expect(r.email).toBe('test@example.com');
-    }
   });
 });

@@ -1,5 +1,7 @@
 import { type FormEvent, useState } from 'react';
 import { LinkedInIcon } from './icons/LinkedInIcon';
+import { submitContactWeb3 } from '../utils/submitContactWeb3';
+import { validateContact } from '../utils/validateContact';
 
 const initial = { name: '', email: '', message: '' };
 
@@ -12,8 +14,6 @@ type StatusState =
   | { type: 'ok'; text: string }
   | { type: 'err'; text: string };
 
-type ContactApiBody = { error?: string; fields?: string[] };
-
 export function Contact() {
   const [form, setForm] = useState<FormState>(initial);
   const [status, setStatus] = useState<StatusState>({ type: 'idle', text: '' });
@@ -23,27 +23,34 @@ export function Contact() {
     e.preventDefault();
     setSending(true);
     setStatus({ type: 'idle', text: '' });
-    try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
-      });
-      const data = (await res.json().catch(() => ({}))) as ContactApiBody;
-      if (!res.ok) {
-        const msg =
-          res.status === 400 && data.fields?.length
-            ? `Please check: ${data.fields.join(', ')}.`
-            : data.error || 'Could not send message. Try again later.';
-        setStatus({ type: 'err', text: msg });
-        return;
-      }
-      setStatus({ type: 'ok', text: 'Thanks — your message was sent successfully.' });
-      setForm(initial);
-    } catch {
+
+    const parsed = validateContact(form);
+    if (!parsed.ok) {
       setStatus({
         type: 'err',
-        text: 'Network error. Is the API running? Use npm run dev from the project root.',
+        text: `Please check: ${parsed.fields.join(', ')}.`,
+      });
+      setSending(false);
+      return;
+    }
+
+    try {
+      await submitContactWeb3(parsed);
+      setStatus({ type: 'ok', text: 'Thanks — your message was sent successfully.' });
+      setForm(initial);
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : String(err);
+      if (msg === 'MISSING_WEB3FORMS_KEY') {
+        setStatus({
+          type: 'err',
+          text:
+            'Contact form is not configured: add VITE_WEB3FORMS_ACCESS_KEY in Vercel (Project → Settings → Environment Variables). Get a free key at web3forms.com',
+        });
+        return;
+      }
+      setStatus({
+        type: 'err',
+        text: msg || 'Could not send message. Try again later.',
       });
     } finally {
       setSending(false);
