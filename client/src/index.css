@@ -1,0 +1,151 @@
+[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #07060c;
+  --bg-elevated: #0f0e14;
+  --surface: #16141f;
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #f4f4f5;
+  --muted: #a1a1aa;
+  --accent: #a78bfa;
+  --accent-dim: rgba(167, 139, 250, 0.15);
+  --accent-hot: #f87171;
+  --gradient-1: linear-gradient(135deg, #a78bfa 0%, #6366f1 50%, #f472b6 100%);
+  --shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+  --nav-bg: rgba(7, 6, 12, 0.72);
+  --hero-glow-1: rgba(99, 102, 241, 0.22);
+  --hero-glow-2: rgba(244, 114, 182, 0.12);
+  --btn-primary-fg: #0b0a10;
+  --btn-primary-shadow: rgba(99, 102, 241, 0.35);
+  --btn-primary-shadow-hover: rgba(99, 102, 241, 0.45);
+  --card-text: #d4d4d8;
+  --card-shadow: rgba(0, 0, 0, 0.2);
+  --about-lead: #e4e4e7;
+  --pillar-border: #a78bfa;
+  --pillar-inset: rgba(255, 255, 255, 0.04);
+  --badge-tech: #c4b5fd;
+  --badge-tool: #f9a8d4;
+  --skill-chip-tech-bg: rgba(99, 102, 241, 0.12);
+  --skill-chip-tech-text: #e4e4e7;
+  --skill-chip-tech-border: rgba(99, 102, 241, 0.35);
+  --skill-chip-tool-bg: rgba(244, 114, 182, 0.08);
+  --skill-chip-tool-text: #e4e4e7;
+  --skill-chip-tool-border: rgba(244, 114, 182, 0.28);
+  --contact-social-border: rgba(10, 102, 194, 0.25);
+  --contact-social-label: #93c5fd;
+  --linkedin-hover-border: #0a66c2;
+  --linkedin-icon-bg: linear-gradient(145deg, #0a66c2, #004182);
+  --linkedin-arrow: #0a66c2;
+  --linkedin-shadow: rgba(10, 102, 194, 0.25);
+  --form-label: #d4d4d8;
+  --focus-ring: rgba(167, 139, 250, 0.55);
+  --status-ok: #86efac;
+  --status-err: #fca5a5;
+  --portrait-inner-bg: #000;
+  --intro-card-shine: linear-gradient(145deg, rgba(99, 102, 241, 0.08), transparent 55%);
+  --about-card-shadow: rgba(0, 0, 0, 0.25);
+  --contact-card-hover-shadow: rgba(0, 0, 0, 0.25);
+  --contact-form-shadow: rgba(0, 0, 0, 0.28);
+  --social-block-bg: linear-gradient(135deg, rgba(10, 102, 194, 0.12), rgba(167, 139, 250, 0.08));
+  --timeline-dot-ring: var(--bg);
+  --theme-toggle-bg: rgba(255, 255, 255, 0.06);
+  --theme-toggle-border: rgba(255, 255, 255, 0.08);
+  --theme-toggle-thumb-bg: var(--surface);
+  --radius: 16px;
+  --font: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+[data-theme='light'] {
+  color-scheme: light;
+  --bg: #f4f4f8;
+  --bg-elevated: #ffffff;
+  --surface: #ffffff;
+  --border: rgba(15, 23, 42, 0.1);
+  --text: #0f172a;
+  --muted: #64748b;
+  --accent: #7c3aed;
+  --accent-dim: rgba(124, 58, 237, 0.12);
+  --accent-hot: #ea580c;
+  --gradient-1: linear-gradient(135deg, #7c3aed 0%, #4f46e5 50%, #db2777 100%);
+  --shadow: 0 24px 80px rgba(15, 23, 42, 0.12);
+  --nav-bg: rgba(255, 255, 255, 0.85);
+  --hero-glow-1: rgba(99, 102, 241, 0.14);
+  --hero-glow-2: rgba(236, 72, 153, 0.1);
+  --btn-primary-fg: #fafafa;
+  --btn-primary-shadow: rgba(79, 70, 229, 0.25);
+  --btn-primary-shadow-hover: rgba(79, 70, 229, 0.35);
+  --card-text: #334155;
+  --card-shadow: rgba(15, 23, 42, 0.06);
+  --about-lead: #1e293b;
+  --pillar-border: #7c3aed;
+  --pillar-inset: rgba(15, 23, 42, 0.04);
+  --badge-tech: #6d28d9;
+  --badge-tool: #be185d;
+  --skill-chip-tech-bg: rgba(99, 102, 241, 0.1);
+  --skill-chip-tech-text: #1e293b;
+  --skill-chip-tech-border: rgba(99, 102, 241, 0.25);
+  --skill-chip-tool-bg: rgba(236, 72, 153, 0.08);
+  --skill-chip-tool-text: #1e293b;
+  --skill-chip-tool-border: rgba(236, 72, 153, 0.22);
+  --contact-social-border: rgba(10, 102, 194, 0.2);
+  --contact-social-label: #2563eb;
+  --linkedin-hover-border: #0a66c2;
+  --linkedin-icon-bg: linear-gradient(145deg, #0a66c2, #004182);
+  --linkedin-arrow: #0a66c2;
+  --linkedin-shadow: rgba(10, 102, 194, 0.2);
+  --form-label: #334155;
+  --focus-ring: rgba(124, 58, 237, 0.35);
+  --status-ok: #15803d;
+  --status-err: #dc2626;
+  --portrait-inner-bg: #000;
+  --intro-card-shine: linear-gradient(145deg, rgba(99, 102, 241, 0.06), transparent 55%);
+  --about-card-shadow: rgba(15, 23, 42, 0.08);
+  --contact-card-hover-shadow: rgba(15, 23, 42, 0.1);
+  --contact-form-shadow: rgba(15, 23, 42, 0.08);
+  --social-block-bg: linear-gradient(135deg, rgba(10, 102, 194, 0.08), rgba(124, 58, 237, 0.06));
+  --timeline-dot-ring: var(--bg);
+  --theme-toggle-bg: rgba(15, 23, 42, 0.06);
+  --theme-toggle-border: rgba(15, 23, 42, 0.12);
+  --theme-toggle-thumb-bg: var(--surface);
+  --radius: 16px;
+  --font: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+}
