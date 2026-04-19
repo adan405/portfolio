@@ -2,6 +2,8 @@ import { LinkedInIcon } from './icons/LinkedInIcon';
 
 const EMAIL = 'adanbhatti6677@gmail.com';
 const MAILTO = `mailto:${EMAIL}`;
+const PHONE_DISPLAY = '+92 323 4881924';
+const PHONE_TEL = '+923234881924';
 const LINKEDIN_URL = 'https://www.linkedin.com/in/adansaleem/';
 
 export function Contact() {
@@ -14,16 +16,20 @@ export function Contact() {
         </header>
 
         <p className="contact-aside-lead">
-          Open to serious opportunities and collaborations. Reach me via Gmail or LinkedIn.
+          Open to serious opportunities and collaborations. Reach me by phone, Gmail, or LinkedIn.
         </p>
 
         <div className="contact-connect">
+          <a className="contact-mini-card" href={`tel:${PHONE_TEL}`}>
+            <span className="contact-mini-label">Phone</span>
+            <span className="contact-mini-value">{PHONE_DISPLAY}</span>
+          </a>
           <a className="contact-mini-card" href={MAILTO}>
             <span className="contact-mini-label">Gmail</span>
             <span className="contact-mini-value">{EMAIL}</span>
           </a>
           <a
-            className="contact-linkedin-btn"
+            className="contact-linkedin-btn contact-connect-linkedin"
             href={LINKEDIN_URL}
             target="_blank"
             rel="noopener noreferrer"

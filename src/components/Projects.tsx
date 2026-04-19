@@ -35,6 +35,19 @@ const projects: readonly Project[] = [
       'JWT auth, strict validation, and PostgreSQL on the backend; AWS for storage, media, and cloud-native delivery.',
     ],
   },
+  {
+    title: 'Novaform',
+    tagline: 'Mattress and sleep products e-commerce for the U.S. market',
+    stack: 'MongoDB · Express · React · Node.js · AWS',
+    url: 'https://novaformcomfort.com/',
+    image: '/projects/novaform.png',
+    imageAlt: 'Novaform marketing site across laptop, tablet, and phone',
+    highlights: [
+      'Worked on a consumer-facing mattress brand experience for the United States—product storytelling, collections, and responsive layouts across desktop, tablet, and phone.',
+      'MERN stack end to end: MongoDB, Express, React, and Node.js for content, catalog flows, and integrations supporting the storefront experience.',
+      'AWS for cloud hosting, scaling, and operational delivery so the site stays fast and reliable for shoppers nationwide.',
+    ],
+  },
 ];
 
 export function Projects() {
