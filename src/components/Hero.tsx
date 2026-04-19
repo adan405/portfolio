@@ -1,5 +1,4 @@
 const RESUME_PATH = '/adan-saleem-resume.pdf';
-const HERO_VISUAL = '/hero-ai.svg';
 
 export function Hero() {
   return (
@@ -24,17 +23,6 @@ export function Hero() {
             <a className="btn btn-ghost" href={RESUME_PATH} download="Adan-Saleem-Resume.pdf">
               Download resume
             </a>
-          </div>
-        </div>
-        <div className="hero-visual-wrap" aria-hidden="false">
-          <div className="hero-visual-card">
-            <img
-              className="hero-ai-image"
-              src={HERO_VISUAL}
-              alt="Abstract AI and technology illustration"
-              width={560}
-              height={420}
-            />
           </div>
         </div>
       </div>
