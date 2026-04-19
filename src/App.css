@@ -23,15 +23,158 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 0.75rem 1rem;
+  position: relative;
 }
 
-.nav-right {
+.nav-toolbar {
   display: flex;
   align-items: center;
-  gap: 0.75rem 1.25rem;
-  flex-wrap: wrap;
-  justify-content: flex-end;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 102;
+}
+
+.nav-burger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: 1px solid var(--theme-toggle-border);
+  border-radius: 12px;
+  background: var(--theme-toggle-bg);
+  color: var(--text);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.nav-burger:hover {
+  border-color: var(--accent);
+  background: var(--accent-dim);
+}
+
+.nav-burger:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.nav-burger-icon {
+  width: 1.35rem;
+  height: 1.35rem;
+}
+
+/* Desktop: links in header (hidden on small screens — mobile uses portaled drawer) */
+.primary-nav--desktop {
+  min-width: 0;
+}
+
+@media (min-width: 900px) {
+  .primary-nav--desktop {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-inline: 0.35rem 0.5rem;
+  }
+
+  .primary-nav--desktop .nav-links {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.35rem 0.85rem;
+  }
+}
+
+@media (max-width: 899px) {
+  .nav-burger {
+    display: inline-flex;
+  }
+
+  .primary-nav--desktop {
+    display: none;
+  }
+}
+
+/*
+ * Mobile drawer is rendered with createPortal(document.body) so position:fixed is viewport-sized.
+ * (backdrop-filter on .nav creates a containing block and was shrinking fixed children to the bar height.)
+ */
+.primary-nav--drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 45;
+  width: 100%;
+  min-height: 100dvh;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.primary-nav--drawer.primary-nav--drawer-open {
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.primary-nav--drawer .nav-scrim {
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: rgba(0, 0, 0, 0.52);
+  cursor: pointer;
+}
+
+.primary-nav--drawer .primary-nav-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: min(20rem, 88vw);
+  height: 100%;
+  min-height: 100dvh;
+  max-height: 100dvh;
+  background: var(--bg-elevated);
+  border-left: 1px solid var(--border);
+  box-shadow: -16px 0 48px rgba(0, 0, 0, 0.35);
+  padding: 5.25rem 1.25rem 2rem;
+  overflow-y: auto;
+  transform: translateX(100%);
+  transition: transform 0.28s ease;
+}
+
+.primary-nav--drawer.primary-nav--drawer-open .primary-nav-panel {
+  transform: translateX(0);
+}
+
+.primary-nav--drawer .nav-links {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  flex-wrap: nowrap;
+}
+
+.primary-nav--drawer .nav-links a {
+  display: block;
+  padding: 0.95rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+}
+
+.primary-nav--drawer .nav-links a:hover {
+  color: var(--accent);
+}
+
+.primary-nav--drawer .nav-links li:last-child a {
+  border-bottom: none;
 }
 
 .theme-toggle {
@@ -107,6 +250,10 @@
 }
 
 .brand {
+  position: relative;
+  z-index: 102;
+  flex-shrink: 0;
+  min-width: 0;
   font-weight: 700;
   font-size: 1.05rem;
   letter-spacing: -0.02em;
